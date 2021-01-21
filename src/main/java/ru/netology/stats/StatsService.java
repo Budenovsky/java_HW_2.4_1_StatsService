@@ -12,7 +12,7 @@ public class StatsService {
     }
 
     public float calculateAverage(int[] purchases) {
-        float average = calculateSum(purchases) / 12;
+        float average = calculateSum(purchases) / 12.0F;
         return average;
     }
 
@@ -51,9 +51,9 @@ public class StatsService {
     public int monthsUnderAverage(int[] purchases) {
 
         int monthsNumber = 0;
-
+        float average = calculateAverage(purchases);
         for (int purchase : purchases) {
-            if (purchase < calculateAverage(purchases)) {
+            if (purchase < average) {
                 monthsNumber++;
             }
         }
